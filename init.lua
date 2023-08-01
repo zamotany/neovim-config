@@ -4,8 +4,11 @@ local opt = vim.opt
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("core.bootstrap")
-require('lazy').setup(require("core.plugins"))
 
 opt.hlsearch = true
 opt.mouse = "a"
@@ -46,4 +49,5 @@ for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
   vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
+require('lazy').setup(require("core.plugins"))
 require("core.autocmds")
