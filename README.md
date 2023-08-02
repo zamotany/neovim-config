@@ -1,7 +1,7 @@
 # neovim config
 
-<img width="1470" alt="Screenshot 2023-08-02 at 19 51 52" src="https://github.com/zamotany/nvdoom/assets/17573635/b842e2ad-d244-4ed8-aac9-0164c5a825ed">
-<img width="1470" alt="Screenshot 2023-08-02 at 19 53 28" src="https://github.com/zamotany/nvdoom/assets/17573635/e8217803-b724-4bfb-bfe6-c9a3f7524b10">
+<img width="1470" alt="Screenshot 2023-08-02 at 19 51 52" src="https://github.com/zamotany/neovim-config/assets/17573635/f7fc9a94-f96f-4107-935a-445f5d5459ae">
+<img width="1470" alt="Screenshot 2023-08-02 at 19 53 28" src="https://github.com/zamotany/neovim-config/assets/17573635/5569eaab-8500-499e-a525-abaae02265c1">
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
 - [catppuccin](https://github.com/catppuccin/nvim)
