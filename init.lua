@@ -18,6 +18,7 @@ opt.undofile = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.updatetime = 250
+opt.timeout = true
 opt.timeoutlen = 300
 opt.completeopt = "menuone,noselect"
 opt.termguicolors = true
@@ -26,10 +27,10 @@ opt.showmode = false
 opt.cursorline = true
 opt.signcolumn = "yes"
 opt.fillchars = { eob = " " }
-opt.shortmess:append "sI"
+opt.shortmess:append("sI")
 opt.splitbelow = true
 opt.splitright = true
-opt.whichwrap:append "<>[]hl"
+opt.whichwrap:append("<>[]hl")
 
 -- Numbers
 opt.number = true
@@ -45,9 +46,9 @@ opt.tabstop = 2
 opt.softtabstop = 2
 
 -- Disable some default providers
-for _, provider in ipairs { "node", "perl", "python3", "ruby" } do
-  vim.g["loaded_" .. provider .. "_provider"] = 0
+for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
+	vim.g["loaded_" .. provider .. "_provider"] = 0
 end
 
-require('lazy').setup(require("core.plugins"))
+require("lazy").setup(require("core.plugins"))
 require("core.autocmds")
