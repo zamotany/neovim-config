@@ -13,4 +13,5 @@ end
 
 vim.keymap.set("n", "<tab>", next_buffer, { desc = "Next buffer" })
 vim.keymap.set("n", "<S-tab>", prev_buffer, { desc = "Prev buffer" })
+vim.keymap.set("n", "<leader>b", ":enew<cr>", { desc = "New buffer" })
 vim.keymap.set("n", "<leader>x", close_buffer, { desc = "Close buffer" })

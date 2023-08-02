@@ -37,6 +37,9 @@ local plugins = {
 	{
 		"freddiehaddad/feline.nvim",
 		lazy = false,
+		opts = function()
+			return require("plugins.feline")
+		end,
 		config = function(_, opts)
 			require("feline").setup(opts)
 		end,
@@ -66,6 +69,7 @@ local plugins = {
 		end,
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
+      require("mappings.gitsigns")
 		end,
 	},
 
@@ -99,6 +103,7 @@ local plugins = {
 		},
 		config = function()
 			require("plugins.lspconfig")
+      require("mappings.lspconfig")
 		end,
 	},
 
