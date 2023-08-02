@@ -51,6 +51,15 @@ local plugins = {
 			require("feline").setup(opts)
 		end,
 	},
+	{
+		"utilyre/barbecue.nvim",
+		dependencies = {
+			"SmiteshP/nvim-navic",
+		},
+		opts = {
+			theme = "catppuccin",
+		},
+	},
 
 	-- Git
 	{
@@ -214,6 +223,13 @@ local plugins = {
 			end, 0)
 		end,
 	},
+	{
+		"max397574/better-escape.nvim",
+		event = "InsertEnter",
+		config = function()
+			require("better_escape").setup()
+		end,
+	},
 
 	-- File management & pickers
 	{
@@ -238,7 +254,7 @@ local plugins = {
 			local telescope = require("telescope")
 			telescope.setup(opts)
 			require("mappings.telescope")
-      require("auto-session").setup_session_lens()
+			require("auto-session").setup_session_lens()
 
 			-- load extensions
 			for _, ext in ipairs(opts.extensions_list) do
