@@ -238,6 +238,7 @@ local plugins = {
 			local telescope = require("telescope")
 			telescope.setup(opts)
 			require("mappings.telescope")
+      require("auto-session").setup_session_lens()
 
 			-- load extensions
 			for _, ext in ipairs(opts.extensions_list) do

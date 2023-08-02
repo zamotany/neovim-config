@@ -23,7 +23,7 @@ vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "Find oldfiles" })
 vim.keymap.set(
 	"n",
 	"<leader>ps",
-	":Telescope persisted<cr>",
+	require("auto-session.session-lens").search_session,
 	{ desc = "Persisted sessions", nowait = true, silent = true }
 )
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "Treesitter symbols" })
