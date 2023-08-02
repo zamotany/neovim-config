@@ -31,6 +31,7 @@ opt.shortmess:append("sI")
 opt.splitbelow = true
 opt.splitright = true
 opt.whichwrap:append("<>[]hl")
+opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
 
 -- Numbers
 opt.number = true

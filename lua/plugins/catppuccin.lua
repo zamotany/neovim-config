@@ -1,22 +1,59 @@
 local options = {
 	flavour = "frappe",
+	dim_inactive = {
+		enabled = true,
+	},
 	highlight_overrides = {
 		all = function(colors)
 			return {
 				NormalFloat = { fg = colors.text, bg = colors.crust },
 				FloatBorder = { fg = colors.surface0, bg = colors.crust },
 				FloatTitle = { fg = colors.subtext0 },
+				-- Cmp customizations
 				CmpDocBorder = { link = "FloatBorder" },
 				CmpDoc = { bg = colors.crust },
 				CmpPmenu = { bg = colors.crust },
 				CmpBorder = { link = "FloatBorder" },
 				CmpSel = { link = "PmenuSel", bold = true },
+				-- Gitsigns customizations
 				GitSingsBorder = { link = "FloatBorder" },
 				GitSignsAdd = { fg = colors.green },
 				GitSignsChange = { fg = colors.yellow },
 				GitSingsDelete = { fg = colors.red },
 				GitSignsAddPreview = { fg = colors.green },
 				GitSignsDeletePreview = { fg = colors.red },
+				-- Telescope customizations
+				TelescopeBorder = {
+					fg = colors.crust,
+					bg = colors.crust,
+				},
+				TelescopePromptBorder = {
+					fg = colors.mantle,
+					bg = colors.mantle,
+				},
+				TelescopePromptPrefix = {
+					fg = colors.red,
+					bg = colors.mantle,
+				},
+				TelescopePromptNormal = {
+					fg = colors.text,
+					bg = colors.mantle,
+				},
+				TelescopeNormal = { bg = colors.crust },
+				TelescopePreviewTitle = {
+					fg = colors.base,
+					bg = colors.green,
+					bold = true,
+				},
+				TelescopePromptTitle = {
+					fg = colors.base,
+					bg = colors.red,
+					bold = true,
+				},
+				TelescopeSelection = { bg = colors.surface0, fg = colors.text },
+				TelescopeResultsDiffAdd = { fg = colors.green },
+				TelescopeResultsDiffChange = { fg = colors.yellow },
+				TelescopeResultsDiffDelete = { fg = colors.red },
 			}
 		end,
 	},

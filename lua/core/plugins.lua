@@ -7,6 +7,13 @@ local plugins = {
 		"nvim-tree/nvim-web-devicons",
 		lazy = false,
 	},
+	{
+		"rmagatti/auto-session",
+		lazy = false,
+		opts = function()
+			return require("plugins.auto-session")
+		end,
+	},
 
 	-- UI and theme
 	{
@@ -69,7 +76,7 @@ local plugins = {
 		end,
 		config = function(_, opts)
 			require("gitsigns").setup(opts)
-      require("mappings.gitsigns")
+			require("mappings.gitsigns")
 		end,
 	},
 
@@ -103,7 +110,7 @@ local plugins = {
 		},
 		config = function()
 			require("plugins.lspconfig")
-      require("mappings.lspconfig")
+			require("mappings.lspconfig")
 		end,
 	},
 
@@ -217,6 +224,25 @@ local plugins = {
 		end,
 		opts = function()
 			return require("plugins.nvimtree")
+		end,
+	},
+	{
+		"nvim-telescope/telescope.nvim",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		cmd = "Telescope",
+		keys = { "<leader>", "g" },
+		opts = function()
+			return require("plugins.telescope")
+		end,
+		config = function(_, opts)
+			local telescope = require("telescope")
+			telescope.setup(opts)
+			require("mappings.telescope")
+
+			-- load extensions
+			for _, ext in ipairs(opts.extensions_list) do
+				telescope.load_extension(ext)
+			end
 		end,
 	},
 
