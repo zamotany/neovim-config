@@ -1,5 +1,5 @@
 local options = {
-	flavour = "frappe",
+	flavour = "macchiato",
 	dim_inactive = {
 		enabled = true,
 		shade = "light",

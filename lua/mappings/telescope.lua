@@ -10,6 +10,7 @@ vim.keymap.set("n", "<leader>fa", function()
 end, { desc = "Find all" })
 vim.keymap.set("n", "<leader>fn", function()
 	builtin.find_files({
+    cwd = vim.fn.getcwd() .. "/node_modules",
 		file_ignore_patterns = {},
 		find_command = { "rg", "--no-ignore", "--no-hidden", "--files" },
 	})
@@ -29,7 +30,11 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "Treesitter symbols" })
 
 vim.keymap.set("n", "<leader>cm", builtin.git_commits, { desc = "Git commits" })
-vim.keymap.set("n", "<leader>gt", builtin.git_status, { desc = "Git status" })
+vim.keymap.set("n", "<leader>gt", function()
+	builtin.git_status({
+		initial_mode = "normal",
+	})
+end, { desc = "Git status" })
 vim.keymap.set("n", "<leader>st", builtin.git_stash, { desc = "Git stash" })
 vim.keymap.set("n", "<leader>br", builtin.git_branches, { desc = "Git branches" })
 
@@ -53,3 +58,8 @@ vim.keymap.set("n", "<leader>D", function()
 		initial_mode = "normal",
 	})
 end, { desc = "LSP type definitions" })
+vim.keymap.set("n", "<leader>fd", function()
+	builtin.diagnostics({
+		initial_mode = "normal",
+	})
+end, { desc = "LSP diagnostics" })

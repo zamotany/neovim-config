@@ -16,6 +16,7 @@
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [nvim-treesitter-context](https://github.com/nvim-treesitter/nvim-treesitter-context)
 - [telescope.nvim](https://github.com/nvim-telescope/telescope.nvim)
+- [telescope-fzf-native.nvim](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
 - [indent-blankline.nvim](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [nvim-colorizer](https://github.com/NvChad/nvim-colorizer.lua)
 - [Comment.nvim](https://github.com/numToStr/Comment.nvim)
@@ -25,9 +26,21 @@
 ## Installation
 
 Prerequisites:
-- neovim
-- ripgrep
+- `neovim`
+- `ripgrep`
+- `fzf`
+- `gcc` or `clang` (for `telescope-fzf-native`)
+- `make` (for `telescope-fzf-native`)
 
+```bash
+git clone git@github.com:zamotany/neovim-config.git ~/.config/nvim
 ```
-git checkout git@github.com:zamotany/nvdoom.git ~/.config/nvim
+
+For example on MacOS:
+
+```bash
+brew install neovim
+brew install ripgrep
+brew install fzf
+git clone git@github.com:zamotany/neovim-config.git ~/.config/nvim
 ```
