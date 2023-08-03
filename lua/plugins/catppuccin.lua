@@ -1,3 +1,5 @@
+local colors_utils = require("catppuccin.utils.colors")
+
 local options = {
 	flavour = "macchiato",
 	dim_inactive = {
@@ -18,6 +20,8 @@ local options = {
 				CmpPmenu = { bg = colors.crust },
 				CmpBorder = { link = "FloatBorder" },
 				CmpSel = { link = "PmenuSel", bold = true },
+        -- Diff customization (used by diffview.nvim)
+        DiffDelete = { fg = colors.surface2, bg = colors_utils.darken(colors.red, 0.18, colors.base) },
 				-- Gitsigns customizations
 				GitSingsBorder = { link = "FloatBorder" },
 				GitSignsAdd = { fg = colors.green },

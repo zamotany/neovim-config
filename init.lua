@@ -26,7 +26,7 @@ opt.laststatus = 3
 opt.showmode = false
 opt.cursorline = true
 opt.signcolumn = "yes"
-opt.fillchars = { eob = " " }
+opt.fillchars = { eob = " ", diff = "/" }
 opt.shortmess:append("sI")
 opt.splitbelow = true
 opt.splitright = true

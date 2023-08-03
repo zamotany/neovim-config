@@ -94,6 +94,18 @@ local plugins = {
 			require("mappings.gitsigns")
 		end,
 	},
+	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewRefresh" },
+    keys = { "<leader>" },
+		opts = function()
+			return require("plugins.diffview")
+		end,
+		config = function(_, opts)
+			require("diffview").setup(opts)
+			require("mappings.diffview")
+		end,
+	},
 
 	-- LSP
 	{
@@ -148,7 +160,7 @@ local plugins = {
 		config = function(_, opts)
 			require("nvim-treesitter.configs").setup(opts)
 
-      -- Custom command to install all parser from ensure_installed
+			-- Custom command to install all parser from ensure_installed
 			vim.api.nvim_create_user_command("TSInstallAll", function()
 				vim.cmd("TSInstall " .. table.concat(opts.ensure_installed, " "))
 			end, {})
@@ -259,12 +271,12 @@ local plugins = {
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      {
-        "nvim-telescope/telescope-fzf-native.nvim",
-        build = "make",
-      },
-    },
+			"nvim-treesitter/nvim-treesitter",
+			{
+				"nvim-telescope/telescope-fzf-native.nvim",
+				build = "make",
+			},
+		},
 		cmd = "Telescope",
 		keys = { "<leader>", "g" },
 		opts = function()

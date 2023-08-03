@@ -1,6 +1,9 @@
 local utils = require("core.utils")
 
 local options = {
+  input = {
+    enabled = false,
+  },
 	select = {
 		get_config = function(opts)
 			local config = {
