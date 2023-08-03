@@ -60,6 +60,12 @@ local plugins = {
 			theme = "catppuccin",
 		},
 	},
+	{
+		"stevearc/dressing.nvim",
+		opts = function()
+			return require("plugins.dressing")
+		end,
+	},
 
 	-- Git
 	{
@@ -126,7 +132,7 @@ local plugins = {
 	-- Code editing related plugins
 	{
 		"nvim-treesitter/nvim-treesitter",
-		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+		cmd = { "TSInstall", "TSInstallAll", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
 		build = ":TSUpdate",
 		dependencies = {
 			{
@@ -138,6 +144,14 @@ local plugins = {
 		},
 		opts = function()
 			return require("plugins.treesitter")
+		end,
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+
+      -- Custom command to install all parser from ensure_installed
+			vim.api.nvim_create_user_command("TSInstallAll", function()
+				vim.cmd("TSInstall " .. table.concat(opts.ensure_installed, " "))
+			end, {})
 		end,
 	},
 	{

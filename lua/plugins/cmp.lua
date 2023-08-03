@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local utils = require("core.utils")
 
 local formatting_style = {
 	fields = { "abbr", "kind", "menu" },
@@ -20,19 +21,6 @@ local formatting_style = {
 	}),
 }
 
-local function border(hl_name)
-	return {
-		{ "╭", hl_name },
-		{ "─", hl_name },
-		{ "╮", hl_name },
-		{ "│", hl_name },
-		{ "╯", hl_name },
-		{ "─", hl_name },
-		{ "╰", hl_name },
-		{ "│", hl_name },
-	}
-end
-
 local options = {
 	completion = {
 		completeopt = "menu,menuone",
@@ -43,10 +31,10 @@ local options = {
 			side_padding = 1,
 			winhighlight = "Normal:CmpPmenu,CursorLine:CmpSel,Search:PmenuSel",
 			scrollbar = false,
-			border = border("CmpBorder"),
+			border = utils.border("CmpBorder"),
 		},
 		documentation = {
-			border = border("CmpDocBorder"),
+			border = utils.border("CmpDocBorder"),
 			winhighlight = "Normal:CmpDoc",
 		},
 	},

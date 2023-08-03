@@ -2,13 +2,16 @@ local options = {
 	flavour = "frappe",
 	dim_inactive = {
 		enabled = true,
+		shade = "light",
+		percentage = 0.2,
 	},
 	highlight_overrides = {
 		all = function(colors)
 			return {
 				NormalFloat = { fg = colors.text, bg = colors.crust },
-				FloatBorder = { fg = colors.surface0, bg = colors.crust },
-				FloatTitle = { fg = colors.subtext0 },
+				FloatBorder = { fg = colors.mantle, bg = colors.crust },
+				FloatTitle = { fg = colors.sky, bg = colors.crust, bold = true },
+				CodeActionBorder = { fg = colors.crust, bg = colors.crust },
 				-- Cmp customizations
 				CmpDocBorder = { link = "FloatBorder" },
 				CmpDoc = { bg = colors.crust },
@@ -63,12 +66,12 @@ local options = {
 		nvimtree = true,
 		treesitter = true,
 		which_key = true,
-    barbecue = {
-      dim_dirname = true,
-      bold_basename = true,
-      dim_context = false,
-      alt_background = true,
-    },
+		barbecue = {
+			dim_dirname = true,
+			bold_basename = true,
+			dim_context = false,
+			alt_background = true,
+		},
 	},
 }
 

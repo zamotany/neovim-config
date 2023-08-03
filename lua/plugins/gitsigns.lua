@@ -1,15 +1,4 @@
-local function border(hl_name)
-	return {
-		{ "╭", hl_name },
-		{ "─", hl_name },
-		{ "╮", hl_name },
-		{ "│", hl_name },
-		{ "╯", hl_name },
-		{ "─", hl_name },
-		{ "╰", hl_name },
-		{ "│", hl_name },
-	}
-end
+local utils = require("core.utils")
 
 local options = {
 	signs = {
@@ -20,11 +9,11 @@ local options = {
 		changedelete = { text = "~" },
 		untracked = { text = "│" },
 	},
-  preview_config = {
-    border = border("GitSingsBorder")
-  }
+	preview_config = {
+		border = utils.border("GitSingsBorder"),
+	},
 	-- on_attach = function(bufnr)
-  --   utils.load_mappings("gitsigns", { buffer = bufnr })
+	--   utils.load_mappings("gitsigns", { buffer = bufnr })
 	-- end,
 }
 
