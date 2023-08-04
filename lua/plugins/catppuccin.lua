@@ -13,6 +13,8 @@ local options = {
 				NormalFloat = { fg = colors.text, bg = colors.crust },
 				FloatBorder = { fg = colors.mantle, bg = colors.crust },
 				FloatTitle = { fg = colors.sky, bg = colors.crust, bold = true },
+				FoldColumn = { fg = colors.overlay1 },
+				-- Code action customizations
 				CodeActionBorder = { fg = colors.crust, bg = colors.crust },
 				-- Cmp customizations
 				CmpDocBorder = { link = "FloatBorder" },
@@ -20,8 +22,8 @@ local options = {
 				CmpPmenu = { bg = colors.crust },
 				CmpBorder = { link = "FloatBorder" },
 				CmpSel = { link = "PmenuSel", bold = true },
-        -- Diff customization (used by diffview.nvim)
-        DiffDelete = { fg = colors.surface2, bg = colors_utils.darken(colors.red, 0.18, colors.base) },
+				-- Diff customization (used by diffview.nvim)
+				DiffDelete = { fg = colors.surface2, bg = colors_utils.darken(colors.red, 0.18, colors.base) },
 				-- Gitsigns customizations
 				GitSignsBorder = { link = "FloatBorder" },
 				GitSignsAdd = { fg = colors.green },

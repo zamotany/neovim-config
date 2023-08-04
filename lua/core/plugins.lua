@@ -145,6 +145,13 @@ local plugins = {
 		event = "VeryLazy",
 		config = function() end,
 	},
+	{
+		"folke/trouble.nvim",
+		config = function(_, opts)
+			require("trouble").setup(opts)
+			require("mappings.trouble")
+		end,
+	},
 
 	-- Code editing related plugins
 	{
@@ -260,6 +267,15 @@ local plugins = {
 		config = function()
 			require("better_escape").setup()
 		end,
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		dependencies = { "kevinhwang91/promise-async" },
+		opts = {
+			provider_selector = function(bufnr, filetype, buftype)
+				return { "treesitter", "indent" }
+			end,
+		},
 	},
 
 	-- File management & pickers

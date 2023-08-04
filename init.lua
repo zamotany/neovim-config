@@ -26,12 +26,18 @@ opt.laststatus = 3
 opt.showmode = false
 opt.cursorline = true
 opt.signcolumn = "yes"
-opt.fillchars = { eob = " ", diff = "/" }
+opt.fillchars = [[eob: ,diff: ,fold: ,foldopen:,foldsep: ,foldclose:]]
 opt.shortmess:append("sI")
 opt.splitbelow = true
 opt.splitright = true
 opt.whichwrap:append("<>[]hl")
 opt.sessionoptions = "buffers,curdir,folds,globals,tabpages,winpos,winsize"
+opt.fileformat = "unix"
+opt.fixendofline = true
+opt.foldcolumn = '0'
+opt.foldlevel = 99
+opt.foldlevelstart = 99
+opt.foldenable = true
 
 -- Numbers
 opt.number = true
