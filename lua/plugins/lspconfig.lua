@@ -42,7 +42,12 @@ local on_attach = function(client, bufnr)
 	client.server_capabilities.documentFormattingProvider = false
 	client.server_capabilities.documentRangeFormattingProvider = false
 
-	-- utils.load_mappings("lspconfig", { buffer = bufnr })
+	require("lsp_signature").on_attach({
+		floating_window_off_x = function()
+			return -1
+		end,
+		hint_enable = false,
+	}, bufnr)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

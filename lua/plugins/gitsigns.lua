@@ -10,7 +10,7 @@ local options = {
 		untracked = { text = "│" },
 	},
 	preview_config = {
-		border = utils.border("GitSingsBorder"),
+		border = utils.border("GitSignsBorder"),
 	},
 	-- on_attach = function(bufnr)
 	--   utils.load_mappings("gitsigns", { buffer = bufnr })

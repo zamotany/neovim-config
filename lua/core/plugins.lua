@@ -97,7 +97,7 @@ local plugins = {
 	{
 		"sindrets/diffview.nvim",
 		cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewRefresh" },
-    keys = { "<leader>" },
+		keys = { "<leader>" },
 		opts = function()
 			return require("plugins.diffview")
 		end,
@@ -139,6 +139,11 @@ local plugins = {
 			require("plugins.lspconfig")
 			require("mappings.lspconfig")
 		end,
+	},
+	{
+		"ray-x/lsp_signature.nvim",
+		event = "VeryLazy",
+		config = function() end,
 	},
 
 	-- Code editing related plugins

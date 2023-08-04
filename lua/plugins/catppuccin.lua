@@ -23,10 +23,10 @@ local options = {
         -- Diff customization (used by diffview.nvim)
         DiffDelete = { fg = colors.surface2, bg = colors_utils.darken(colors.red, 0.18, colors.base) },
 				-- Gitsigns customizations
-				GitSingsBorder = { link = "FloatBorder" },
+				GitSignsBorder = { link = "FloatBorder" },
 				GitSignsAdd = { fg = colors.green },
 				GitSignsChange = { fg = colors.yellow },
-				GitSingsDelete = { fg = colors.red },
+				GitSignsDelete = { fg = colors.red },
 				GitSignsAddPreview = { fg = colors.green },
 				GitSignsDeletePreview = { fg = colors.red },
 				-- Telescope customizations
