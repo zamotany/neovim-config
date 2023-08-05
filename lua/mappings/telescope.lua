@@ -27,7 +27,7 @@ vim.keymap.set(
 	require("auto-session.session-lens").search_session,
 	{ desc = "Persisted sessions", nowait = true, silent = true }
 )
-vim.keymap.set("n", "<leader>ft", builtin.treesitter, { desc = "Treesitter symbols" })
+vim.keymap.set("n", "<leader>fs", builtin.treesitter, { desc = "Treesitter symbols" })
 
 vim.keymap.set("n", "<leader>cm", builtin.git_commits, { desc = "Git commits" })
 vim.keymap.set("n", "<leader>gt", function()

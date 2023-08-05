@@ -277,6 +277,20 @@ local plugins = {
 			end,
 		},
 	},
+	{
+		"folke/todo-comments.nvim",
+		opts = {},
+		-- TODO: hello world
+		-- FIX: local
+		-- PERF: asdf
+		-- WARN: aaa
+		-- HACK: local
+		-- NOTE: TelescopePrompt
+		config = function(_, opts)
+			require("todo-comments").setup(opts)
+			require("mappings.todo-comments")
+		end,
+	},
 
 	-- File management & pickers
 	{
