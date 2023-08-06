@@ -111,8 +111,35 @@ local servers = {
   { "tsserver", opts = { format = false } },
   { "clangd", opts = { format = false } },
   { "eslint", opts = { format = false } },
-  { "jsonls", opts = { format = false } },
-  { "yamlls", opts = { format = false } },
+  {
+    "jsonls",
+    opts = {
+      format = false,
+      settings = {
+        json = {
+          schemas = require("schemastore").json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    },
+  },
+  {
+    "yamlls",
+    opts = {
+      format = false,
+      settings = {
+        yaml = {
+          schemaStore = {
+            -- Disable built-in schemaStore support
+            enable = false,
+            -- Avoid TypeError: Cannot read properties of undefined (reading 'length')
+            url = "",
+          },
+          schemas = require("schemastore").yaml.schemas(),
+        },
+      },
+    },
+  },
   { "dockerls", opts = { format = true } },
   { "docker_compose_language_service", opts = { format = false } },
   { "sqlls", opts = { format = true } },
@@ -120,10 +147,14 @@ local servers = {
 
 for _, lsp_config in ipairs(servers) do
   local lsp = lsp_config[1]
-  local opts = lsp_config.opts
+  local format = lsp_config.opts.format
+  local settings = lsp_config.opts.settings
 
   lspconfig[lsp].setup({
-    on_attach = make_on_attach(opts),
+    on_attach = make_on_attach({
+      format = format,
+    }),
     capabilities = capabilities,
+    settings = settings,
   })
 end
