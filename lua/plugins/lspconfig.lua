@@ -43,18 +43,22 @@ win.default_opts = function(options)
 end
 
 -- Customize on_attach
-local on_attach = function(client, bufnr)
-  -- Not sure what it does, but copied from NVChad
-  client.server_capabilities.documentFormattingProvider = false
-  client.server_capabilities.documentRangeFormattingProvider = false
+local make_on_attach = function(opts)
+  return function(client, bufnr)
+    if not opts.format then
+      -- Disable LSP formatting in favour of null-ls formatting
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    end
 
-  -- Setup as-you-type signature popup
-  require("lsp_signature").on_attach({
-    floating_window_off_x = function()
-      return -1
-    end,
-    hint_enable = false,
-  }, bufnr)
+    -- Setup as-you-type signature popup
+    require("lsp_signature").on_attach({
+      floating_window_off_x = function()
+        return -1
+      end,
+      hint_enable = false,
+    }, bufnr)
+  end
 end
 
 -- Customize capabilities
@@ -80,7 +84,7 @@ capabilities.textDocument.completion.completionItem = {
 
 -- Setup Lua LS
 lspconfig.lua_ls.setup({
-  on_attach = on_attach,
+  on_attach = make_on_attach({ format = false }),
   capabilities = capabilities,
   settings = {
     Lua = {
@@ -101,11 +105,24 @@ lspconfig.lua_ls.setup({
 })
 
 -- Setup rest of LS
-local servers = { "html", "cssls", "tsserver", "clangd", "eslint" }
+local servers = {
+  { "html", opts = { format = false } },
+  { "cssls", opts = { format = false } },
+  { "tsserver", opts = { format = false } },
+  { "clangd", opts = { format = false } },
+  { "eslint", opts = { format = false } },
+  { "jsonls", opts = { format = false } },
+  { "yamlls", opts = { format = false } },
+  { "dockerls", opts = { format = true } },
+  { "docker_compose_language_service", opts = { format = false } },
+}
 
-for _, lsp in ipairs(servers) do
+for _, lsp_config in ipairs(servers) do
+  local lsp = lsp_config[1]
+  local opts = lsp_config.opts
+
   lspconfig[lsp].setup({
-    on_attach = on_attach,
+    on_attach = make_on_attach(opts),
     capabilities = capabilities,
   })
 end
