@@ -115,6 +115,7 @@ local servers = {
   { "yamlls", opts = { format = false } },
   { "dockerls", opts = { format = true } },
   { "docker_compose_language_service", opts = { format = false } },
+  { "sqlls", opts = { format = true } },
 }
 
 for _, lsp_config in ipairs(servers) do
