@@ -1,23 +1,23 @@
 local gs = require("gitsigns")
 
 local function next_hunk()
-	if vim.wo.diff then
-		return "]c"
-	end
-	vim.schedule(function()
-		gs.next_hunk()
-	end)
-	return "<Ignore>"
+  if vim.wo.diff then
+    return "]c"
+  end
+  vim.schedule(function()
+    gs.next_hunk()
+  end)
+  return "<Ignore>"
 end
 
 local function prev_hunk()
-	if vim.wo.diff then
-		return "[c"
-	end
-	vim.schedule(function()
-		gs.prev_hunk()
-	end)
-	return "<Ignore>"
+  if vim.wo.diff then
+    return "[c"
+  end
+  vim.schedule(function()
+    gs.prev_hunk()
+  end)
+  return "<Ignore>"
 end
 
 vim.keymap.set("n", "]c", next_hunk, { desc = "Jump to next hunk", expr = true })
@@ -30,8 +30,8 @@ vim.keymap.set("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Undo stage hunk"
 vim.keymap.set("n", "<leader>gb", gs.blame_line, { desc = "Blame line" })
 
 vim.keymap.set("v", "<leader>hs", function()
-	gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+  gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 end, { desc = "Stage hunk" })
 vim.keymap.set("v", "<leader>hr", function()
-	gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+  gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 end, { desc = "Reset hunk" })

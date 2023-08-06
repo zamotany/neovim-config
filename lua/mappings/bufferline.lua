@@ -1,14 +1,14 @@
 function next_buffer()
-	require("bufferline").cycle(1)
+  require("bufferline").cycle(1)
 end
 
 function prev_buffer()
-	require("bufferline").cycle(-1)
+  require("bufferline").cycle(-1)
 end
 
 function close_buffer()
-	require("bufferline").unpin_and_close()
-	require("bufferline").cycle(-1)
+  require("bufferline").unpin_and_close()
+  require("bufferline").cycle(-1)
 end
 
 vim.keymap.set("n", "<tab>", next_buffer, { desc = "Next buffer" })
