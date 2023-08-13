@@ -135,8 +135,8 @@ local plugins = {
         end,
       },
       {
-        "b0o/schemastore.nvim"
-      }
+        "b0o/schemastore.nvim",
+      },
     },
     config = function()
       require("plugins.lspconfig")
@@ -283,15 +283,18 @@ local plugins = {
   {
     "folke/todo-comments.nvim",
     opts = {},
-    -- TODO: hello world
-    -- FIX: local
-    -- PERF: asdf
-    -- WARN: aaa
-    -- HACK: local
-    -- NOTE: TelescopePrompt
     config = function(_, opts)
       require("todo-comments").setup(opts)
       require("mappings.todo-comments")
+    end,
+  },
+  {
+    "AckslD/nvim-neoclip.lua",
+    opts = {
+       default_register = "*",
+    },
+    config = function(_, opts)
+      require("neoclip").setup(opts)
     end,
   },
 

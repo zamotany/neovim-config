@@ -26,6 +26,15 @@ local options = {
     use_languagetree = true,
   },
   indent = { enable = true },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "<leader>cn",
+      node_incremental = "<leader>ci",
+      scope_incremental = "<leader>cs",
+      node_decremental = "<leader>cd",
+    },
+  },
 }
 
 return options

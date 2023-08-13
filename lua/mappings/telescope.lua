@@ -60,3 +60,7 @@ vim.keymap.set("n", "<leader>fd", function()
     initial_mode = "normal",
   })
 end, { desc = "LSP diagnostics" })
+
+vim.keymap.set({ "n", "v" }, "<leader>fy", function()
+  require("telescope").extensions.neoclip.default({ initial_mode = "normal" })
+end, { desc = "Yanklist" })
