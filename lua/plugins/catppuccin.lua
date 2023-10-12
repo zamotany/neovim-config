@@ -22,7 +22,7 @@ local options = {
         CmpPmenu = { bg = colors.crust },
         CmpBorder = { link = "FloatBorder" },
         CmpSel = { link = "PmenuSel", bold = true },
-        -- Diff customization (used by diffview.nvim)
+        -- Diff customization
         DiffDelete = { fg = colors.surface2, bg = colors_utils.darken(colors.red, 0.18, colors.base) },
         -- Gitsigns customizations
         GitSignsBorder = { link = "FloatBorder" },

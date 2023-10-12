@@ -94,18 +94,6 @@ local plugins = {
       require("mappings.gitsigns")
     end,
   },
-  {
-    "sindrets/diffview.nvim",
-    cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewRefresh" },
-    keys = { "<leader>" },
-    opts = function()
-      return require("plugins.diffview")
-    end,
-    config = function(_, opts)
-      require("diffview").setup(opts)
-      require("mappings.diffview")
-    end,
-  },
 
   -- LSP
   {
@@ -291,7 +279,7 @@ local plugins = {
   {
     "AckslD/nvim-neoclip.lua",
     opts = {
-       default_register = "*",
+      default_register = "*",
     },
     config = function(_, opts)
       require("neoclip").setup(opts)
@@ -333,6 +321,18 @@ local plugins = {
       for _, ext in ipairs(opts.extensions_list) do
         telescope.load_extension(ext)
       end
+    end,
+  },
+
+  -- Terminal
+  {
+    "NvChad/nvterm",
+    opts = function()
+      return require("plugins.nvterm")
+    end,
+    config = function(_, opts)
+      require("nvterm").setup(opts)
+      require("mappings.nvterm")
     end,
   },
 

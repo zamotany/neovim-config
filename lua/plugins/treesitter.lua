@@ -5,6 +5,7 @@ local options = {
     "html",
     "css",
     "scss",
+    "jsdoc",
     "javascript",
     "typescript",
     "tsx",
