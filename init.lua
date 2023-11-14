@@ -34,7 +34,7 @@ opt.whichwrap:append("<>[]hl")
 opt.sessionoptions = "buffers,curdir,globals,tabpages,winpos,winsize"
 opt.fileformat = "unix"
 opt.fixendofline = true
-opt.foldcolumn = '0'
+opt.foldcolumn = "0"
 opt.foldlevel = 99
 opt.foldlevelstart = 99
 opt.foldenable = true
@@ -55,6 +55,10 @@ opt.softtabstop = 2
 -- Disable some default providers
 for _, provider in ipairs({ "node", "perl", "python3", "ruby" }) do
   vim.g["loaded_" .. provider .. "_provider"] = 0
+end
+
+if vim.g.neovide then
+  require("core.neovide")
 end
 
 require("lazy").setup(require("core.plugins"))
